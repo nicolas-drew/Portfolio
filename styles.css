@@ -1,52 +1,104 @@
 /* https://coolors.co/palette/ffd6ff-e7c6ff-c8b6ff-b8c0ff-bbd0ff */
+:root {
+  --shadow: #212049;
+  --text1: #ffffff;
+  --text2: #a69eff;
+  --background1: #29285a;
+  --background2: rgb(79, 77, 163);
+  --background3: #8f0e35;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 html {
   font-family: "Outfit", sans-serif;
-  font-size: 24px;
+  font-size: 26px;
   text-align: center;
 }
 body {
   background: linear-gradient(
     90deg,
-    rgba(187, 208, 255, 1) 0%,
-    rgba(255, 214, 255, 1) 100%
+    var(--background1) 0%,
+    var(--background2) 100%
   );
 }
 #welcome-section {
-  max-width: 30%;
+  max-width: 60%;
   margin: 0 auto;
-  padding: 5px;
-  background-color: #b8c0ff;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px 2px #c8b6ff;
+  padding-top: 250px;
 }
-#welcome-section h1 {
+h1 {
   color: #fff;
-  text-shadow: 0.7px 0.7px 3px#000;
-  margin-bottom: -5px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
-#welcome-section p {
+h2 {
   font-size: smaller;
   font-weight: 400;
-  color: #e7c6ff;
+  color: var(--text2);
   text-shadow: 0.7px 0.7px #000;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
-
+#projects h1 {
+  margin-top: 250px;
+}
+#welcome-section p {
+  color: var(--text1);
+}
+img {
+  max-width: 40vw;
+}
+a {
+  text-decoration: none;
+}
+#projects-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin: 0 auto;
+}
+.documentation,
+.tribute,
+.form {
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px var(--shadow);
+}
+#projects-section p {
+  color: var(--text1);
+  background-color: var(--background3);
+  padding-bottom: 5px;
+}
+#contact-section {
+  margin-top: 250px;
+  margin-bottom: 250px;
+}
+#contact-section a {
+  color: var(--text1);
+}
+#navbar {
+  position: fixed;
+  width: 100vw;
+  background: rgba(79, 77, 163, 0.6);
+}
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #c8b6ff;
   padding: 10px 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 0 10px var(--shadow);
+  border-radius: 0 0 10px 10px;
 }
-
 nav .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
 }
-
 nav ul {
   list-style: none;
   display: flex;
@@ -54,24 +106,17 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-
-nav ul li {
-  display: inline;
-}
-
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: var(--text1);
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
-
 nav ul li a:hover {
-  background-color: #b8c0ff;
+  background-color: var(--background1);
 }
-
 @media screen and (max-width: 1000px) {
   html {
     font-size: 60%;

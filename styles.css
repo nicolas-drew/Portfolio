@@ -4,8 +4,8 @@
   --text1: #ffffff;
   --text2-hover: #c8b6ff;
   --background1: #1a1a1a;
+  --background-project: #e7c6ff;
   --back-to-top: #ffffff3a;
-  --button: #ffd6ff;
 }
 * {
   margin: 0;
@@ -21,7 +21,6 @@ html {
 body {
   background-color: var(--background1);
 }
-
 #welcome-section {
   max-width: 60%;
   margin: 0 auto;
@@ -237,6 +236,11 @@ form textarea {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
   color: var(--text1);
 }
+#navbar .logo img {
+  width: 3vw;
+  height: auto;
+  scale: 2;
+}
 #navbar {
   position: fixed;
   width: 100vw;
@@ -249,11 +253,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-}
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
 }
 nav ul {
   list-style: none;

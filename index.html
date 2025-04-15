@@ -24,21 +24,24 @@
       <ul>
         <li><a href="#welcome-section">Home</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact-section">Contact</a></li>
       </ul>
     </nav>
+    <div id="top"></div>
     <section id="welcome-section">
-      <h1>Hello, I'm Nico!</h1>
+      <h1>
+        <span class="text-part up">Hello,</span>
+        <span class="text-part left">I'm Nico!</span>
+      </h1>
       <h2>a web developer junior</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, fugit
-        tenetur pariatur vel eos nesciunt? Magnam repellendus reiciendis quia
-        tenetur vel, voluptates temporibus recusandae delectus, numquam
-        inventore similique doloribus asperiores!
+        I'm 26 years old, junior web integrator and future web developer, I'm
+        always looking to grow and improve through hands-on projects and new
+        challenges.
       </p>
     </section>
     <section id="projects">
-      <h1>Work</h1>
+      <h1>Some of my projects</h1>
       <div id="projects-section">
         <a
           href="https://nicolas-drew.github.io/fcc-surveyform/"
@@ -70,12 +73,63 @@
       </div>
     </section>
     <section id="contact-section">
+      <h1>Contact me</h1>
+      <form
+        id="contact-form"
+        action="https://formsubmit.co/nicolas.drew@hotmail.com"
+        method="POST"
+      >
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="email@example.com"
+          required
+        />
+
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          id="subject"
+          placeholder="Your subject here"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          rows="5"
+          placeholder="Write your message..."
+          required
+        ></textarea>
+
+        <input type="submit" class="button" value="Send" />
+      </form>
+    </section>
+    <footer id="footer-section">
+      <div class="wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#1a1a1a"
+            fill-opacity="1"
+            d="M0,96L34.3,112C68.6,128,137,160,206,186.7C274.3,213,343,235,411,218.7C480,203,549,149,617,122.7C685.7,96,754,96,823,112C891.4,128,960,160,1029,165.3C1097.1,171,1166,149,1234,160C1302.9,171,1371,213,1406,234.7L1440,256L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"
+          />
+        </svg>
+      </div>
+
       <a
         id="profile-link"
         target="_blank"
         href="https://github.com/nicolas-drew"
-        ><i class="fa-brands fa-github"></i> GitHub</a
       >
-    </section>
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </footer>
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      <i class="fa-solid fa-chevron-up"></i>
+    </a>
   </body>
 </html>

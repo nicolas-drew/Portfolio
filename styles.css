@@ -1,11 +1,42 @@
-/* https://coolors.co/palette/ffd6ff-e7c6ff-c8b6ff-b8c0ff-bbd0ff */
 :root {
   --shadow: #1a1a1a;
   --text1: #ffffff;
-  --text2-hover: #c8b6ff;
+  --text2-hover: #a386f5;
   --background1: #1a1a1a;
-  --background-project: #e7c6ff;
+  --background-project: #5a2bde;
   --back-to-top: #ffffff3a;
+  --background-footer: #5a2bde;
+  --wave: #1a1a1a;
+  --navbar-dark: #1a1a1a3d;
+  --navbar-light: #d7d4ee3d;
+  --gradient-contact: linear-gradient(
+    to bottom,
+    #5a2bde,
+    #422eab,
+    #322a79,
+    #272348,
+    #1a1a1a
+  );
+}
+:root-light {
+  --shadow: #1a1a1a;
+  --text1: #1a1a1a;
+  --text2-hover: #a386f5;
+  --background1: #d7d4ee;
+  --background-project: #795be7;
+  --back-to-top: #ffffff3a;
+  --background-footer: #795be7;
+  --wave: #d7d4ee;
+  --navbar-dark: #1a1a1a3d;
+  --navbar-light: #d7d4ee3d;
+  --gradient-contact: linear-gradient(
+    to bottom,
+    #5a2bde,
+    #795be7,
+    #9885ec,
+    #b6acef,
+    #d7d4ee
+  );
 }
 * {
   margin: 0;
@@ -20,6 +51,7 @@ html {
 }
 body {
   background-color: var(--background1);
+  overflow-x: hidden;
 }
 #welcome-section {
   max-width: 60%;
@@ -27,7 +59,7 @@ body {
   padding-top: 15%;
 }
 .text-part {
-  color: #fff;
+  color: var(--text1);
   margin-bottom: 30px;
   margin-top: 30px;
   animation-timing-function: ease-out;
@@ -67,7 +99,7 @@ h2 {
   font-size: smaller;
   font-weight: 400;
   color: var(--text2-hover);
-  text-shadow: 0.7px 0.7px #000;
+  text-shadow: 1px 1px var(--shadow);
   margin-bottom: 30px;
   margin-top: 15px;
   font-style: italic;
@@ -109,24 +141,40 @@ h2 {
   transform: scale(1.03);
   filter: brightness(1.1);
 }
+.project-info {
+  position: absolute;
+  width: 100%;
+  padding: 15px;
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.7em;
+  text-align: center;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.project-tile:hover .project-info {
+  opacity: 1;
+  transform: translateY(0);
+}
 #projects-section p {
   color: var(--text1);
   font-size: 1.1em;
-  text-shadow: 0.7px 0.7px #000;
-  background: linear-gradient(to right, #bbd0ff, #c8b6ff, #b567e9);
+  background: var(--background-project);
   padding: 5px 5px 10px 0;
 }
 #contact-section {
   margin-top: 250px;
   margin-bottom: 250px;
-  background: linear-gradient(135deg, #c8b6ff, #ffd6ff, #bbd0ff);
-  border-radius: 20px;
+  background-image: var(--gradient-contact);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   padding: 50px 20px;
   max-width: 600px;
 }
 #contact-section h1 {
   color: var(--text1);
-  text-shadow: 1px 1px #000;
 }
 #contact-section a {
   color: var(--text1);
@@ -144,7 +192,6 @@ form {
 }
 form label {
   color: var(--text1);
-  text-shadow: 1px 1px #000;
   margin-top: 15px;
   display: block;
 }
@@ -173,16 +220,17 @@ form textarea {
   background: transparent;
   display: block;
   width: 30%;
+  font-size: 0.9em;
   margin: 10px auto 0 auto;
-  color: var(--background1);
+  color: var(--text1);
   cursor: pointer;
   transition: ease-out 0.4s;
-  border: 2px solid var(--background1);
+  border: 2px solid var(--text1);
   border-radius: 10px;
 }
 .button:hover {
-  box-shadow: inset 0 -100px 0 0 var(--background1);
-  color: var(--text1);
+  box-shadow: inset 0 -100px 0 0 var(--text1);
+  color: var(--background1);
   transform: scale(1.05);
 }
 .button:active {
@@ -191,7 +239,7 @@ form textarea {
 
 #footer-section {
   position: relative;
-  background: linear-gradient(135deg, #b567e9, #c08fff, #e7c6ff);
+  background-color: var(--background-footer);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -211,7 +259,6 @@ a {
   text-decoration: none;
 }
 #profile-link {
-  text-shadow: 1px 1px #000;
   font-size: larger;
 }
 .wave {
@@ -228,7 +275,7 @@ a {
 }
 .back-to-top {
   position: fixed;
-  bottom: 40px;
+  bottom: 30px;
   right: 30px;
   background-color: var(--back-to-top);
   color: var(--background1);
@@ -239,7 +286,7 @@ a {
   transition: 0.3s ease;
 }
 .back-to-top:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
   color: var(--text1);
 }
@@ -247,11 +294,12 @@ a {
   width: 3vw;
   height: auto;
   scale: 2;
+  color: var(--logo);
 }
 #navbar {
   position: fixed;
   width: 100vw;
-  background: rgba(23, 23, 23, 0.1);
+  background: var(--navbar-dark);
   backdrop-filter: blur(4px);
   z-index: 1;
 }
@@ -278,6 +326,18 @@ nav ul li a {
 }
 nav ul li a:hover {
   background-color: var(--text2-hover);
+}
+#toggle-theme {
+  background: transparent;
+  border: none;
+  color: var(--text1);
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  transform: rotate(-20deg);
+}
+#toggle-theme:hover {
+  transform: rotate(0deg);
 }
 @media screen and (max-width: 800px) {
   html {

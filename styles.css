@@ -136,6 +136,7 @@ h2 {
   transition: transform 0.3s ease-in-out;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 .project-tile:hover {
   transform: scale(1.03);
@@ -144,6 +145,7 @@ h2 {
 .project-info {
   position: absolute;
   width: 100%;
+  max-width: 100%;
   padding: 15px;
   backdrop-filter: blur(6px);
   color: #fff;
@@ -160,7 +162,7 @@ h2 {
 }
 #projects-section p {
   color: var(--text1);
-  font-size: 1.1em;
+  font-size: 1em;
   background: var(--background-project);
   padding: 5px 5px 10px 0;
 }
@@ -266,7 +268,7 @@ a {
   width: 100%;
   height: auto;
   overflow: hidden;
-  top: 0;
+  top: -2px;
 }
 .wave svg {
   display: block;
@@ -291,10 +293,11 @@ a {
   color: var(--text1);
 }
 #navbar .logo img {
-  width: 3vw;
+  width: 2vw;
   height: auto;
-  scale: 2;
+  scale: 3;
   color: var(--logo);
+  margin-top: 10px;
 }
 #navbar {
   position: fixed;
@@ -339,8 +342,29 @@ nav ul li a:hover {
 #toggle-theme:hover {
   transform: rotate(0deg);
 }
-@media screen and (max-width: 800px) {
-  html {
-    font-size: 30px;
+@media screen and (max-width: 1024px) {
+  .logo {
+    scale: 1.5;
+  }
+  #welcome-section {
+    padding-top: 30%;
+    max-width: 95%;
+  }
+  #welcome-section p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .project-tile img {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .project-tile img {
+    height: 350px;
+    max-width: 400px;
+  }
+  #contact-section {
+    max-width: 450px;
   }
 }

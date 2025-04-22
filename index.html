@@ -95,7 +95,7 @@
             alt="Technical documentation page"
           />
           <div class="project-info">
-            Exploring the quiet - technical doc on anechoic chambers.
+            Exploring the quiet - Anechoic chambers, built for fCC.
           </div>
           <p>Technical documentation page</p>
         </a>
@@ -120,12 +120,18 @@
         method="POST"
       >
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your name" required />
-
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+          required
+        />
         <label for="email">Email</label>
         <input
           type="email"
           id="email"
+          name="email"
           placeholder="email@example.com"
           required
         />
@@ -133,6 +139,7 @@
         <input
           type="text"
           id="subject"
+          name="subject"
           placeholder="Your subject here"
           required
         />
@@ -140,6 +147,7 @@
         <textarea
           id="message"
           rows="5"
+          name="message"
           placeholder="Write your message..."
           required
         ></textarea>

@@ -134,7 +134,7 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  border: 2px solid var(--background-footer);
+  border: 2 px solid var(--background-footer);
 }
 .project-tile:hover {
   transform: scale(1.03);
@@ -165,6 +165,11 @@ h2 {
   background: var(--background-project);
   padding: 5px 5px 10px 0;
 }
+.bubbles {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
 #contact-section {
   margin-top: 250px;
   margin-bottom: 250px;
@@ -190,6 +195,24 @@ form {
   margin: 0 auto;
   display: block;
   text-align: left;
+}
+.bubbles.left {
+  position: absolute;
+  left: -460px;
+  z-index: -1;
+  max-width: 100%;
+}
+.bubbles.right {
+  position: absolute;
+  right: -450px;
+  z-index: -1;
+  max-width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .bubbles.left,
+  .bubbles.right {
+    display: none;
+  }
 }
 form label {
   color: var(--text1);

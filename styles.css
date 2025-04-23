@@ -134,7 +134,7 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
-  border: 2 px solid var(--background-footer);
+  border: 2px solid var(--background-footer);
 }
 .project-tile:hover {
   transform: scale(1.03);

@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio de Nicolas Drew, développeur web. Projets, contact et CV."
+      content="Portfolio - Nicolas Drew, developpeur web. Projets, contact & CV."
     />
 
-    <!-- Open Graph / Twitter -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Nicolas Drew — Portfolio" />
     <meta
       property="og:description"
-      content="Développeur web. Découvrez mes projets et contactez-moi."
+      content="Developpeur web. Discover my projects and contact me."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -24,7 +24,7 @@
       property="og:image"
       content="https://github.com/nicolas-drew/Portfolio/blob/main/img/ND-logo.png?raw=true"
     />
-    <meta property="og:site_name" content="Portfolio de Nicolas Drew" />
+    <meta property="og:site_name" content="Portfolio of Nicolas Drew" />
     <meta
       name="theme-color"
       content="#1a1a1a"
@@ -71,19 +71,37 @@
   </head>
 
   <body>
-    <nav id="navbar">
-      <div class="logo">
-        <img src="img/ND-logo.png" alt="Nicolas Drew logo" />
-      </div>
-      <ul>
-        <li><a href="#welcome-section">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact-section">Contact</a></li>
+    <nav id="navbar" class="navbar">
+      <ul class="navbar-links">
+        <li>
+          <a href="#welcome-section"><i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li>
+          <a href="#projects"><i class="fa-solid fa-code"></i> Projects</a>
+        </li>
+        <li>
+          <a href="#contact-section"
+            ><i class="fa-solid fa-envelope"></i> Contact</a
+          >
+        </li>
       </ul>
-      <button id="toggle-theme" aria-label="Toggle light/dark mode">
-        <i class="fa-solid fa-moon"></i>
+
+      <div class="navbar-controls">
+        <button id="language-btn" class="navbar-btn">FR</button>
+        <button
+          id="toggle-theme"
+          class="navbar-btn"
+          aria-label="Toggle light/dark mode"
+        >
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+
+      <button class="navbar-toggle" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
       </button>
     </nav>
+
     <div id="top"></div>
     <section id="welcome-section">
       <h1>
@@ -107,7 +125,7 @@
         >
           <img
             src="img/Meteo-app.png"
-            alt="Meteo App — application météo React"
+            alt="Weather App Project"
             loading="lazy"
             decoding="async"
           />

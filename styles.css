@@ -18,7 +18,7 @@
     #1a1a1a
   );
 }
-:root-light {
+:root.light {
   --shadow: #1a1a1a;
   --text1: #1a1a1a;
   --text2-hover: #a386f5;
@@ -171,22 +171,18 @@ h2 {
   z-index: -1;
 }
 #contact-section {
-  margin-top: 250px;
-  margin-bottom: 250px;
+  margin: 150px auto;
   background-image: var(--gradient-contact);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 20px 20px 0 0;
   padding: 50px 20px;
   max-width: 600px;
 }
+
 #contact-section h1 {
   color: var(--text1);
 }
 #contact-section a {
   color: var(--text1);
-}
-#contact-section {
-  margin: 150px auto;
 }
 form {
   display: block;

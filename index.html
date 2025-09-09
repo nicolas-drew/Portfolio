@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Portfolio</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <title>Nicolas Drew - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio de Nicolas Drew, développeur front-end (React). Projets, contact et CV."
+    />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Nicolas Drew — Portfolio" />
+    <meta
+      property="og:description"
+      content="Développeur front-end (React). Projets, contact et CV."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="theme-color"
+      content="#1a1a1a"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#d7d4ee"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicon/favicon-96x96.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -14,25 +61,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
-    <link rel="icon" type="image/svg+xml" href="favicon/" />
-    <link rel="shortcut icon" href="favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favicon/apple-touch-icon.png"
-    />
-    <link rel="manifest" href="favicon/site.webmanifest" />
   </head>
+
   <body>
     <nav id="navbar">
       <div class="logo">
@@ -68,10 +98,17 @@
           target="_blank"
           class="project-tile meteo"
         >
-          <img src="img/Meteo-app.png" alt="" />
-          <div class="project-info">
-            Still in progress - A weather app, built with React.
-          </div>
+          <img
+            src="img/Meteo-app.png"
+            alt="Meteo App — application météo React"
+            loading="lazy"
+            decoding="async"
+          />
+          <figure class="project-info">
+            <figcaption>
+              Still in progress - A weather app, built with React.
+            </figcaption>
+          </figure>
           <p>Meteo App</p>
         </a>
         <a
@@ -82,10 +119,12 @@
           <img
             src="img/Rpg-creature-search-app.png"
             alt="RPG Creature Search App"
+            loading="lazy"
+            decoding="async"
           />
-          <div class="project-info">
-            Discover mythical beings, built for fCC.
-          </div>
+          <figure class="project-info">
+            <figcaption>Discover mythical beings, built for fCC.</figcaption>
+          </figure>
           <p>RPG Creature Search App</p>
         </a>
         <a
@@ -93,10 +132,17 @@
           target="_blank"
           class="project-tile tribute"
         >
-          <img src="img/Tic-tac-toe.png" alt="TIC-TAC-TOE" />
-          <div class="project-info">
-            A classic game, group project - built with React.
-          </div>
+          <img
+            src="img/Tic-tac-toe.png"
+            alt="TIC-TAC-TOE"
+            loading="lazy"
+            decoding="async"
+          />
+          <figure class="project-info">
+            <figcaption>
+              A classic game, group project - built with React.
+            </figcaption>
+          </figure>
           <p>TIC-TAC-TOE</p>
         </a>
         <a
@@ -108,9 +154,11 @@
             src="img/Technical documentation page.png"
             alt="Technical documentation page"
           />
-          <div class="project-info">
-            Exploring the quiet - Anechoic chambers, built for fCC.
-          </div>
+          <figure class="project-info">
+            <figcaption>
+              Exploring the quiet - Anechoic chambers, built for fCC.
+            </figcaption>
+          </figure>
           <p>Technical documentation page</p>
         </a>
         <a
@@ -118,20 +166,35 @@
           target="_blank"
           class="project-tile"
         >
-          <img src="img/Product Landing Page.png" alt="Product Landing Page" />
-          <div class="project-info">
-            Relive. Rewind. Repeat. RewindDrop, built for fCC.
-          </div>
+          <img
+            src="img/Product Landing Page.png"
+            alt="Product Landing Page"
+            loading="lazy"
+            decoding="async"
+          />
+          <figure class="project-info">
+            <figcaption>A product landing page, built for fCC.</figcaption>
+          </figure>
           <p>Product landing page</p>
         </a>
       </div>
     </section>
     <section id="contact-section">
       <div class="bubbles left">
-        <img src="img/bubble left.png" alt="bubbles" />
+        <img
+          src="img/bubble left.png"
+          alt="bubbles"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div class="bubbles right">
-        <img src="img/bubble right.png" alt="bubbles" />
+        <img
+          src="img/bubble right.png"
+          alt="bubbles"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <h1>Contact me</h1>
       <form
@@ -195,5 +258,6 @@
     <a href="#top" class="back-to-top" aria-label="Back to top">
       <i class="fa-solid fa-chevron-up"></i>
     </a>
+    <script src="script.js"></script>
   </body>
 </html>

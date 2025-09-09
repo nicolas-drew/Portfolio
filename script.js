@@ -31,6 +31,7 @@ const translations = {
   fr: {
     // Navigation
     nav_home: "Accueil",
+    nav_about: "À propos",
     nav_projects: "Projets",
     nav_contact: "Contact",
 
@@ -38,8 +39,19 @@ const translations = {
     welcome_hello: "Salut,",
     welcome_name: "Je suis Nico!",
     welcome_subtitle: "un développeur web junior",
-    welcome_description:
-      "Je suis Nicolas Drew, 26 ans, intégrateur web junior et développeur web en herbe. Je cherche toujours à grandir et à m'améliorer à travers des projets pratiques et de nouveaux défis.",
+    welcome_cta: "En savoir plus sur moi",
+    // Section À propos
+    about_title: "À propos de moi",
+    about_text1:
+      "Je suis <span class='highlight'>Nicolas Drew</span>, 26 ans, basé à Agen. Curieux et créatif, j'aime apprendre de nouvelles choses et m'exprimer à travers des projets numériques, tout en étant également passionné par les jeux vidéo et le design.",
+
+    about_text2:
+      "J'ai découvert le développement web parce que je voulais transformer des idées en <span class='highlight'>expériences réelles</span>. J'apprécie l'équilibre entre la résolution de problèmes et la créativité, et la manière dont le code peut donner forme à quelque chose d'utile et d'agréable.",
+
+    about_text3:
+      "Aujourd'hui, je me concentre sur la maîtrise des technologies web modernes et des bonnes pratiques, tout en réalisant des projets qui mettent en valeur mes compétences. Je suis particulièrement intéressé par le <span class='highlight'>développement React</span> et la création de sites web responsifs et accessibles.",
+    skills_title: "Mes compétences",
+    learning_title: "En cours d'apprentissage",
 
     // Section projets
     projects_title: "Certains de mes projets",
@@ -67,6 +79,7 @@ const translations = {
   en: {
     // Navigation
     nav_home: "Home",
+    nav_about: "About",
     nav_projects: "Projects",
     nav_contact: "Contact",
 
@@ -74,8 +87,20 @@ const translations = {
     welcome_hello: "Hello,",
     welcome_name: "I'm Nico!",
     welcome_subtitle: "a junior web developer",
-    welcome_description:
-      "I'm Nicolas Drew, 26 years old, junior web integrator and aspiring web developer, I'm always looking to grow and improve through hands-on projects and new challenges.",
+    welcome_cta: "Learn more about me",
+
+    // Section À propos
+    about_title: "About me",
+    about_text1:
+      "I'm <span class='highlight'>Nicolas Drew</span>, 26 years old and based in Agen, France. Curious and creative, I enjoy learning new things and expressing myself through digital projects, while also being passionate about video games and design.",
+
+    about_text2:
+      "I discovered web development because I wanted to turn ideas into <span class='highlight'>real experiences</span>. I like the balance between problem-solving and creativity, and how code can shape something both useful and enjoyable.",
+
+    about_text3:
+      "Currently, I'm focused on mastering modern web technologies and best practices while building projects that showcase my growing skills. I'm particularly interested in <span class='highlight'>React development</span> and creating responsive, accessible websites.",
+    skills_title: "My Skills",
+    learning_title: "Currently Learning",
 
     // Section projets
     projects_title: "Some of my projects",
@@ -124,8 +149,9 @@ function changeLanguage(lang) {
 function updateTexts() {
   const t = translations[currentLanguage];
 
-  // Navigation
+  // Navigation (ajouter le lien About)
   document.querySelector('a[href="#welcome-section"]').textContent = t.nav_home;
+  document.querySelector('a[href="#about-section"]').textContent = t.nav_about;
   document.querySelector('a[href="#projects"]').textContent = t.nav_projects;
   document.querySelector('a[href="#contact-section"]').textContent =
     t.nav_contact;
@@ -135,8 +161,18 @@ function updateTexts() {
   document.querySelector(".text-part.left").textContent = t.welcome_name;
   document.querySelector("#welcome-section h2").textContent =
     t.welcome_subtitle;
-  document.querySelector("#welcome-section p").textContent =
-    t.welcome_description;
+  document.querySelector(".cta-button").textContent = t.welcome_cta;
+
+  // Section À propos
+  document.querySelector("#about-section h2").textContent = t.about_title;
+
+  const aboutTexts = document.querySelectorAll(".about-text p");
+  if (aboutTexts[0]) aboutTexts[0].innerHTML = t.about_text1;
+  if (aboutTexts[1]) aboutTexts[1].innerHTML = t.about_text2;
+  if (aboutTexts[2]) aboutTexts[2].innerHTML = t.about_text3;
+
+  document.querySelector(".skills-card h3").textContent = t.skills_title;
+  document.querySelector(".learning-section h4").textContent = t.learning_title;
 
   // Section projets
   document.querySelector("#projects h1").textContent = t.projects_title;

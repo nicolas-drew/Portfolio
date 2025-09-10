@@ -1,4 +1,3 @@
-const btn = document.getElementById("toggle-theme");
 const root = document.documentElement;
 
 // Système de traduction

@@ -333,3 +333,10 @@ if (toggleBtn && navbar) {
     navbar.classList.toggle("open");
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has("success")) {
+    alert("✅ Your message has been sent successfully!");
+  }
+});

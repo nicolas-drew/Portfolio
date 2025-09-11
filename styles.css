@@ -1352,3 +1352,56 @@ h2 {
     font-size: 0.9rem;
   }
 }
+
+.field input.error-field,
+.field textarea.error-field {
+  border-color: var(--error-color);
+  background: rgba(239, 68, 68, 0.05);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.field input.error-field:focus,
+.field textarea.error-field:focus {
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.field .error {
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.field .error:not(:empty) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.field input:not(.error-field):valid:not(:placeholder-shown),
+.field textarea:not(.error-field):valid:not(:placeholder-shown) {
+  border-color: var(--success-color);
+}
+
+.field input:not(.error-field):valid:not(:placeholder-shown):focus,
+.field textarea:not(.error-field):valid:not(:placeholder-shown):focus {
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.field input.error-field:valid,
+.field textarea.error-field:valid {
+  border-color: var(--error-color) !important;
+}
+
+.field input.error-field:valid:focus,
+.field textarea.error-field:valid:focus {
+  border-color: var(--error-color) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+}
+
+@media (max-width: 480px) {
+  .field .error {
+    font-size: 0.75rem;
+  }
+}

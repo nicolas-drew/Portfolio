@@ -18,7 +18,7 @@ const translations = {
     // Section À propos
     about_title: "À propos de moi",
     about_text1:
-      "Je suis Nicolas Drew, 26 ans, basé à Agen. Curieux et créatif, j'aime apprendre de nouvelles choses et m'exprimer à travers des projets numériques, tout en étant également passionné par les jeux vidéo et le design.",
+      "Je suis <span class='highlight'>Nicolas Drew</span>, 26 ans, basé à Agen. Curieux et créatif, j'aime apprendre de nouvelles choses et m'exprimer à travers des projets numériques, tout en étant également passionné par les jeux vidéo et le design.",
 
     about_text2:
       "J'ai découvert le développement web parce que je voulais transformer des idées en <span class='highlight'>expériences réelles</span>. J'aime la satisfaction de donner vie aux idées grâce au code.",
@@ -90,11 +90,9 @@ const translations = {
     // Section À propos
     about_title: "About me",
     about_text1:
-      "I'm Nicolas Drew, 26 years old and based in Agen, France. Curious and creative, I enjoy learning new things and expressing myself through digital projects, while also being passionate about video games and design.",
-
+      "I'm <span class='highlight'>Nicolas Drew</span>, 26 years old and based in Agen, France. Curious and creative, I enjoy learning new things and expressing myself through digital projects, while also being passionate about video games and design.",
     about_text2:
       "I discovered web development because I wanted to turn ideas into <span class='highlight'>real experiences</span>. I love the satisfaction of bringing ideas to life through code.",
-
     about_text3:
       "Currently, I'm focused on mastering modern web technologies and best practices while building projects that showcase my growing skills. I'm particularly interested in <span class='highlight'>React development</span> and creating responsive, accessible websites.",
 
@@ -303,6 +301,11 @@ function updateTexts() {
   // Footer copyright
   const footerCopyright = document.querySelector(".footer-copyright p");
   if (footerCopyright) footerCopyright.textContent = t.footer_copyright;
+
+  const fieldsWithErrors = document.querySelectorAll(".error-field");
+  fieldsWithErrors.forEach((field) => {
+    validateField(field);
+  });
 }
 
 // Initialiser la langue au chargement
@@ -338,4 +341,173 @@ document.addEventListener("DOMContentLoaded", () => {
   if (params.has("success")) {
     alert("✅ Your message has been sent successfully!");
   }
+});
+
+// Messages d'erreur personnalisés
+const errorMessages = {
+  fr: {
+    name: {
+      required: "Veuillez saisir votre nom",
+      minLength: "Le nom doit contenir au moins 2 caractères",
+    },
+    email: {
+      required: "Veuillez saisir votre adresse email",
+      invalid: "Veuillez saisir une adresse email valide",
+    },
+    subject: {
+      required: "Veuillez saisir un sujet",
+      minLength: "Le sujet doit contenir au moins 3 caractères",
+    },
+    message: {
+      required: "Veuillez saisir votre message",
+      minLength: "Le message doit contenir au moins 10 caractères",
+    },
+  },
+  en: {
+    name: {
+      required: "Please enter your name",
+      minLength: "Name must be at least 2 characters long",
+    },
+    email: {
+      required: "Please enter your email address",
+      invalid: "Please enter a valid email address",
+    },
+    subject: {
+      required: "Please enter a subject",
+      minLength: "Subject must be at least 3 characters long",
+    },
+    message: {
+      required: "Please enter your message",
+      minLength: "Message must be at least 10 characters long",
+    },
+  },
+};
+
+// Fonction pour valider un champ
+function validateField(field) {
+  const value = field.value.trim();
+  const fieldName = field.name;
+  const errorElement = field.parentElement.querySelector(".error");
+  const messages = errorMessages[currentLanguage][fieldName];
+
+  // Réinitialiser l'état d'erreur
+  field.classList.remove("error-field");
+  errorElement.textContent = "";
+
+  // Validation selon le type de champ
+  switch (fieldName) {
+    case "name":
+      if (!value) {
+        showError(field, errorElement, messages.required);
+        return false;
+      } else if (value.length < 2) {
+        showError(field, errorElement, messages.minLength);
+        return false;
+      }
+      break;
+
+    case "email":
+      if (!value) {
+        showError(field, errorElement, messages.required);
+        return false;
+      } else if (!isValidEmail(value)) {
+        showError(field, errorElement, messages.invalid);
+        return false;
+      }
+      break;
+
+    case "subject":
+      if (!value) {
+        showError(field, errorElement, messages.required);
+        return false;
+      } else if (value.length < 3) {
+        showError(field, errorElement, messages.minLength);
+        return false;
+      }
+      break;
+
+    case "message":
+      if (!value) {
+        showError(field, errorElement, messages.required);
+        return false;
+      } else if (value.length < 10) {
+        showError(field, errorElement, messages.minLength);
+        return false;
+      }
+      break;
+  }
+
+  return true;
+}
+
+// Fonction pour afficher une erreur
+function showError(field, errorElement, message) {
+  field.classList.add("error-field");
+  errorElement.textContent = message;
+}
+
+// Fonction pour valider l'email
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Fonction pour valider tout le formulaire
+function validateForm() {
+  const form = document.getElementById("contact-form");
+  const fields = form.querySelectorAll("input[required], textarea[required]");
+  let isValid = true;
+
+  fields.forEach((field) => {
+    if (!validateField(field)) {
+      isValid = false;
+    }
+  });
+
+  return isValid;
+}
+
+// Initialisation de la validation
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const fields = form.querySelectorAll("input, textarea");
+
+  // Désactiver la validation HTML5 par défaut
+  form.setAttribute("novalidate", "novalidate");
+
+  // Ajouter les événements de validation en temps réel
+  fields.forEach((field) => {
+    // Validation lors de la perte de focus
+    field.addEventListener("blur", function () {
+      validateField(this);
+    });
+
+    // Validation lors de la saisie (avec délai)
+    let timeout;
+    field.addEventListener("input", function () {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        if (this.value.trim()) {
+          validateField(this);
+        }
+      }, 500);
+    });
+  });
+
+  // Validation lors de la soumission
+  form.addEventListener("submit", function (e) {
+    if (!validateForm()) {
+      e.preventDefault();
+
+      // Faire défiler vers la première erreur
+      const firstError = form.querySelector(".error-field");
+      if (firstError) {
+        firstError.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        firstError.focus();
+      }
+    }
+  });
 });
